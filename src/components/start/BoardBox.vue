@@ -5,12 +5,12 @@
                  size="large"
                  shape="square"/>
     </div>
-    <el-form :model="form" class="el-form">
+    <el-form class="el-form">
       <el-form-item label="">
-        <el-input v-model="form.name" placeholder="用户名"></el-input>
+        <el-input v-model="name" placeholder="用户名"></el-input>
       </el-form-item>
       <el-form-item label="">
-        <el-input v-model="form.pwd" placeholder="密码"></el-input>
+        <el-input v-model="pwd" placeholder="密码"></el-input>
       </el-form-item>
     </el-form>
     <div class="confirm">
@@ -23,19 +23,22 @@
 </template>
 
 <script>
-import {reactive} from "vue";
-
-const form =reactive({
-  name: '',
-  pwd: ''
-})
 
 export default {
   name: "BoardBox",
   data() {
     return {
-      form: form
+      pwd: "",
+      name: ""
     }
+  },
+  props: {
+    form: {
+      type: Object
+    }
+  },
+  setup(props) {
+    console.log(1, props.form)
   }
 }
 </script>
