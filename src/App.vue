@@ -1,18 +1,27 @@
 <template>
-  <board-box></board-box>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<!--  <BaseTemp v-for="post in posts"-->
+<!--            :key="posts.indexOf(post)"-->
+<!--            :ti="post">占位符</BaseTemp>-->
+<!--  <board-box :form="person"></board-box>-->
+  <ToList></ToList>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-import BoardBox from "./components/BoardBox";
+import ToList from "@/components/todo/ToList";
 
 export default {
   name: 'App',
+  data(){
+    return {
+      posts: ["标题1", "标题2"],
+      person: {
+        name: "aaa",
+        age: 18
+      }
+    }
+  },
   components: {
-    HelloWorld,
-    BoardBox
+    ToList
   }
 }
 </script>
